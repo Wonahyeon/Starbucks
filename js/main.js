@@ -33,8 +33,34 @@ window.addEventListener('scroll',function () {
   // 그렇지 않으면 다시 보이기!!(display block)
   // .style 자동완성 안뜨는데 그냥 쓰면 됨
   if (window.scrollY > 500) {
-    badgeEl.style.display = "none";
+    // badgeEl.style.display = "none";
+
+    // gsap.to(요소, 지속시간, 옵션: {}) 메소드: CSS 속성을 통해 애니메이션 처리
+    gsap.to(badgeEl,0.6,{
+      opacity: 0,
+      display:'none'
+    });
   } else {
-    badgeEl.style.display = "block";
+    // badgeEl.style.display = "block";
+    gsap.to(badgeEl,0.6,{
+      opacity: 1,
+      display:'block'
+    });
   }
+});
+
+// 순차적으로 VISUAL 섹션 내 요소 보이기
+// 나타날 요소(.fade-in)들을 찾기
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+
+// 요소들을 하나씩 반복해서 처리
+// foreach(function(요소,인덱스))
+fadeEls.forEach(function (fadeEl, index) {
+  // gsap.to(요소, 지속시간, 옵션: {})
+  gsap.to(fadeEl, 1, {
+    // delay: 몇 초 뒤에 실행될 것인가?
+    // index를 이용하여 요소별 delay 시간 다르게 주려면
+    delay: (index + 1) * 0.7, // 0.7 1.4 2.1 2.8
+    opacity: 1
+  });
 });
