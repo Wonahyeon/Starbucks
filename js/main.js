@@ -64,3 +64,12 @@ fadeEls.forEach(function (fadeEl, index) {
     opacity: 1
   });
 });
+
+// 공지사항 수직 슬라이드 기능 작성
+// new 키워드로 Swiper 객체를 생성 => 슬라이드 기능을 생성
+// new Swiper(선택자, 옵션:{});
+new Swiper('.notice .swiper', {
+  direction: 'vertical', // 수직 슬라이드
+  loop: true, // 반복 재생 여부
+  autoplay: true, // 자동 재생 여부
+});
