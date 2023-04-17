@@ -114,3 +114,4 @@ promotionToggleBtn.addEventListener('click', function () {
     promotionToggleIcon.textContent='download';
   }
 });
+
