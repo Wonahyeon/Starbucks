@@ -140,3 +140,15 @@ gsap.to('.floating3',2.5, {
   ease: Power1.easeInOut
 });
 
+// 어워즈 섹션 슬라이드 기능 작성
+new Swiper('.awards .swiper', {
+  // direction: 'horizontal', // 수평 슬라이드(기본값)
+  loop: true, // 반복 재생 여부
+  autoplay: true, // 자동 재생 여부 기본값 3초
+  slidesPerView: 5, // 한번에 보여줄 슬라이드 개수(기본값: 1)
+  spaceBetween: 30, // 슬라이드 사이 여백(간격) px
+  navigation: { // 슬라이드 이전/다음 버튼 사용
+    nextEl: '.awards .swiper-button-next',
+    prevEl: '.awards .swiper-button-prev'
+  }
+});
