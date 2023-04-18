@@ -139,3 +139,4 @@ gsap.to('.floating3',2.5, {
   yoyo: true, 
   ease: Power1.easeInOut
 });
+
