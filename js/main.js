@@ -165,3 +165,10 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, 'show') // 요소가 화면에 보이면 show 클래스 추가
     .addTo(new ScrollMagic.Controller()); // 컨트롤러에 장면을 할당(필수!) - 라이브러리에서 지정한 문법으로 깊게 이해 X
 });
+
+// 현재 연도 표시
+// 날짜 정보를 가진 JS의 Date 객체를 활용
+
+const thisYear = document.querySelector('.copyright .this-year');
+// thisYear.textContent = 2023;
+thisYear.textContent = new Date().getFullYear(); // 현재 연도의 정보가 숫자 데이터로 반환됨
