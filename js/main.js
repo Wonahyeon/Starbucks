@@ -25,6 +25,15 @@ searchInputEl.addEventListener('blur', function () {
 // 스크롤 시 전역 배지(고정 배너) 숨기기
 const badgeEl = document.querySelector('header .badges');
 
+// 상단으로 이동 버튼 제어
+const toTopEl = document.querySelector('#to-top');
+toTopEl.addEventListener('click',function () {
+  gsap.to(window, 0.6, {
+    scrollTo: 0 // 페이지의 0px 지점(최상단)으로 이동, ScrollToPlugin을 연결해야 사용 가능한 옵션
+  });
+  
+});
+
 // window: BOM Browser Object Model 브라우저 창 객체
 window.addEventListener('scroll',function () {
   // console.log(window.scrollY); // y축으로 얼마나 스크롤 했는지에 대한 수치
@@ -36,15 +45,26 @@ window.addEventListener('scroll',function () {
     // badgeEl.style.display = "none";
 
     // gsap.to(요소, 지속시간, 옵션: {}) 메소드: CSS 속성을 통해 애니메이션 처리
-    gsap.to(badgeEl,0.6,{
+    gsap.to(badgeEl, 0.6, {
       opacity: 0,
       display:'none'
     });
+
+    // 상단으로 이동 버튼 보이기
+    gsap.to(toTopEl, 0.6, {
+      opacity: 1,
+      x: 0, // x축 0px 지점으로 이동
+    });
   } else {
     // badgeEl.style.display = "block";
-    gsap.to(badgeEl,0.6,{
+    gsap.to(badgeEl, 0.6, {
       opacity: 1,
       display:'block'
+    });
+    // 상단으로 이동 버튼 숨기기
+    gsap.to(toTopEl, 0.6, {
+      opacity: 0,
+      x: 100
     });
   }
 });
@@ -172,3 +192,4 @@ spyEls.forEach(function (spyEl) {
 const thisYear = document.querySelector('.copyright .this-year');
 // thisYear.textContent = 2023;
 thisYear.textContent = new Date().getFullYear(); // 현재 연도의 정보가 숫자 데이터로 반환됨
+
